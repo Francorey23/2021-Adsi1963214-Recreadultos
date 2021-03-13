@@ -19,3 +19,7 @@ Route::get('/', function () {
 
 Route::resource('/estudiantes', 'App\Http\Controllers\EstudianteController');
 Route::resource('/asignaturas', 'App\Http\Controllers\AsignaturaController');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
